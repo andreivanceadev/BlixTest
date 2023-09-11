@@ -4,7 +4,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.blixtest.data.FriendsRepositoryImpl
+import com.example.blixtest.data.FriendsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FriendsViewModel @Inject constructor(
-    val friendsRepository: FriendsRepositoryImpl
+    private val friendsRepository: FriendsRepository
 ) : ViewModel() {
 
     private val _friendsScreenState = mutableStateOf(FriendsScreenState())
