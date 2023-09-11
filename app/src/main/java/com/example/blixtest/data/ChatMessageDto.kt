@@ -1,10 +1,8 @@
-package com.example.blixtest.model
+package com.example.blixtest.data
 
-import java.util.Date
-
-data class ChatMessage(
+data class ChatMessageDto(
     val authorId: Int? = null, //no author ID = sent by me
     val authorName: String = "You",
     val message: String,
-    val dateTime: Date
+    val dateTime: String
 )

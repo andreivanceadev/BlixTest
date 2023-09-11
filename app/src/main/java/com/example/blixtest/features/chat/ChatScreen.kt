@@ -26,7 +26,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.blixtest.model.ChatHistory
 import com.example.blixtest.model.ChatMessage
 import com.example.blixtest.model.Friend
 import com.example.blixtest.toPrettyString
@@ -43,9 +42,7 @@ private fun PreviewChatScreen() {
 
 @Composable
 fun ChatScreen(friendId: Int) {
-
-    val mockFriend = Friend(1, "Radu")
-    val mockChat = ChatHistory(
+    val mockChat =
         listOf(
             ChatMessage(
                 authorId = 1,
@@ -65,7 +62,7 @@ fun ChatScreen(friendId: Int) {
             )
 
         )
-    )
+    val mockFriend = Friend(1, "Radu", mockChat)
 
     Scaffold(
         topBar = {
@@ -87,7 +84,7 @@ fun ChatScreen(friendId: Int) {
             LazyColumn(
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                items(mockChat.messages) { message ->
+                items(mockFriend.chatHistory) { message ->
                     ChatListItem(chatMessage = message)
                 }
             }
